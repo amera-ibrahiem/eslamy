@@ -1,4 +1,4 @@
-import 'package:eslamy/tabs/hadeth.dart';
+import 'package:eslamy/tabs/hadeth/hadeth.dart';
 import 'package:eslamy/tabs/quran/quran.dart';
 import 'package:eslamy/tabs/radio.dart';
 import 'package:eslamy/tabs/sebha.dart';

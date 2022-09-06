@@ -32,17 +32,19 @@ class _HadethState extends State<Hadeth> {
           color: Theme.of(context).primaryColor,
           thickness: 2,
         ),
-        Expanded(
-          child: ListView.separated(
-            separatorBuilder: (_, index) {
-              return Container(
-                height: 1,
-                margin: EdgeInsets.symmetric(horizontal: 50),
-                color: MyThemeData.primaryColor,
-              );
-            },
-            itemBuilder: (_, index) {
-              return HadethItems(AllAhadeth[index]);
+        AllAhadeth.length == 0
+            ? Center(child: CircularProgressIndicator())
+            : Expanded(
+                child: ListView.separated(
+                  separatorBuilder: (_, index) {
+                    return Container(
+                      height: 1,
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      color: MyThemeData.primaryColor,
+                    );
+                  },
+                  itemBuilder: (_, index) {
+                    return HadethItems(AllAhadeth[index]);
             },
             itemCount: AllAhadeth.length,
           ),

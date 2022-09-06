@@ -135,7 +135,7 @@ class Quran extends StatelessWidget {
               );
             },
             itemBuilder: (_, index) {
-              return QuranItems('${names[index]}');
+              return QuranItems('${names[index]}', index);
             },
             itemCount: names.length,
           ),

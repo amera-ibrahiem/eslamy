@@ -8,9 +8,9 @@ class MyThemeData {
       canvasColor: primaryColor,
       appBarTheme: AppBarTheme(
         centerTitle: true,
-        color: Colors.transparent,
-        elevation: 0,
-      ),
+          color: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(color: blackColor)),
       textTheme: TextTheme(
           headline1: TextStyle(
             fontSize: 30,

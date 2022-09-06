@@ -1,3 +1,4 @@
+import 'package:eslamy/sura_details/sura_details_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'homelayout.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeLayout.routeName,
       routes: {
         HomeLayout.routeName: (_) => HomeLayout(),
+        SuraDetailsScreen.routeName: (_) => SuraDetailsScreen(),
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,

@@ -64,5 +64,5 @@ class _HomeLayoutState extends State<HomeLayout> {
     );
   }
 
-  List<Widget> tabs = [Quran(), Tasbeh(), Hadeth(), Radioo()];
+  List<Widget> tabs = [Quran(), Hadeth(), Tasbeh(), Radioo()];
 }

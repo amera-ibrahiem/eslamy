@@ -1,6 +1,8 @@
+import 'package:eslamy/provider/my_provider.dart';
 import 'package:eslamy/sura_details/sura_detail_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = 'sura-details';
@@ -14,13 +16,17 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProviderApp>(context);
     var SuraDetailsArgs =
-        ModalRoute.of(context)!.settings.arguments as SuraDetailsModel;
+    ModalRoute
+        .of(context)!
+        .settings
+        .arguments as SuraDetailsModel;
     if (verses.isEmpty) loadFile(SuraDetailsArgs.index);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_bg.png',
+          provider.getBackground(),
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,
@@ -36,11 +42,11 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           body: verses.length == 0
               ? Center(child: CircularProgressIndicator())
               : ListView.builder(
-                  itemBuilder: (_, index) {
-                    return SuraDetailsItem(verses[index].toString());
-                  },
-                  itemCount: verses.length,
-                ),
+            itemBuilder: (_, index) {
+              return SuraDetailsItem(verses[index].toString());
+            },
+            itemCount: verses.length,
+          ),
         )
       ],
     );
@@ -48,7 +54,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   void loadFile(int index) async {
     String content =
-        await rootBundle.loadString('assets/files/${index + 1}.txt');
+    await rootBundle.loadString('assets/files/${index + 1}.txt');
     List<String> lines = [];
     lines.add(content);
     print(lines);

@@ -2,8 +2,10 @@ import 'package:eslamy/tabs/hadeth/hadeth_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../../my_theme.dart';
+import '../../provider/my_provider.dart';
 
 class Hadeth extends StatefulWidget {
   @override
@@ -15,6 +17,7 @@ class _HadethState extends State<Hadeth> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProviderApp>(context);
     if (AllAhadeth.isEmpty) {
       loadHadethFile();
     }
@@ -36,16 +39,16 @@ class _HadethState extends State<Hadeth> {
         AllAhadeth.length == 0
             ? Center(child: CircularProgressIndicator())
             : Expanded(
-                child: ListView.separated(
-                  separatorBuilder: (_, index) {
-                    return Container(
-                      height: 1,
-                      margin: EdgeInsets.symmetric(horizontal: 50),
-                      color: MyThemeData.primaryColor,
-                    );
-                  },
-                  itemBuilder: (_, index) {
-                    return HadethItems(AllAhadeth[index]);
+          child: ListView.separated(
+            separatorBuilder: (_, index) {
+              return Container(
+                height: 1,
+                margin: EdgeInsets.symmetric(horizontal: 50),
+                color: MyThemeData.primaryColor,
+              );
+            },
+            itemBuilder: (_, index) {
+              return HadethItems(AllAhadeth[index]);
             },
             itemCount: AllAhadeth.length,
           ),

@@ -1,3 +1,4 @@
+import 'package:eslamy/provider/my_provider.dart';
 import 'package:eslamy/tabs/hadeth/hadeth.dart';
 import 'package:eslamy/tabs/quran/quran.dart';
 import 'package:eslamy/tabs/radio.dart';
@@ -5,6 +6,7 @@ import 'package:eslamy/tabs/sebha.dart';
 import 'package:eslamy/tabs/setting/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = 'home';
@@ -18,10 +20,11 @@ class _HomeLayoutState extends State<HomeLayout> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProviderApp>(context);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_bg.png',
+          provider.getBackground(),
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,

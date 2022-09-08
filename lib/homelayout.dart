@@ -2,7 +2,9 @@ import 'package:eslamy/tabs/hadeth/hadeth.dart';
 import 'package:eslamy/tabs/quran/quran.dart';
 import 'package:eslamy/tabs/radio.dart';
 import 'package:eslamy/tabs/sebha.dart';
+import 'package:eslamy/tabs/setting/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = 'home';
@@ -28,7 +30,7 @@ class _HomeLayoutState extends State<HomeLayout> {
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: Text(
-              'Islami',
+              AppLocalizations.of(context)!.islamiTitle,
               style: Theme.of(context).textTheme.headline1,
             ),
           ),
@@ -45,16 +47,19 @@ class _HomeLayoutState extends State<HomeLayout> {
               items: [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/quran.png')),
-                    label: 'Quran'),
+                    label: AppLocalizations.of(context)!.quran),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
-                    label: 'Hadeth'),
+                    label: AppLocalizations.of(context)!.hadeth),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/sebha_blue.png')),
-                    label: 'Tasbeh'),
+                    label: AppLocalizations.of(context)!.tasbeh),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/radio.png')),
-                    label: 'Radio'),
+                    label: AppLocalizations.of(context)!.radio),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.settings),
+                    label: AppLocalizations.of(context)!.setting),
               ],
             ),
           ),
@@ -64,5 +69,5 @@ class _HomeLayoutState extends State<HomeLayout> {
     );
   }
 
-  List<Widget> tabs = [Quran(), Hadeth(), Tasbeh(), Radioo()];
+  List<Widget> tabs = [Quran(), Hadeth(), Tasbeh(), Radioo(), Settings()];
 }

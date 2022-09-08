@@ -15,6 +15,7 @@ class _TasbehState extends State<Tasbeh> {
     'لا اله الا الله',
     'لا حول و لا قوة الا بالله'
   ];
+  double angle = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,9 @@ class _TasbehState extends State<Tasbeh> {
               countSebha();
             }),
             child: Center(
-              child: Image.asset('assets/images/sebhapic.png'),
+              child: Transform.rotate(
+                  angle: angle,
+                  child: Image.asset('assets/images/sebhapic.png')),
             )),
         SizedBox(
           height: 55,
@@ -66,6 +69,7 @@ class _TasbehState extends State<Tasbeh> {
     if (counter > (azkar.length * 33) - 1) {
       index = 0;
     }
+    angle += 1 / 10;
     setState(() {});
   }
 }

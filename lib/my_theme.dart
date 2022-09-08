@@ -21,7 +21,9 @@ class MyThemeData {
             fontSize: 25,
             color: blackColor,
             fontWeight: FontWeight.w400,
-          )),
+          ),
+          bodyText1: TextStyle(
+              fontSize: 20, color: blackColor, fontWeight: FontWeight.w500)),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: blackColor, unselectedItemColor: Colors.white));
 

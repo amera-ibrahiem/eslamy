@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'homelayout.dart';
 import 'my_theme.dart';
+import 'provider/my_provider.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -18,9 +20,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  late MyProviderApp provider;
+
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<MyProviderApp>(context);
+    provider = Provider.of<MyProviderApp>(context);
+    initSharedPreference();
     return MaterialApp(
       title: 'Localizations Sample App',
       localizationsDelegates: [
@@ -45,5 +50,22 @@ class MyApp extends StatelessWidget {
       darkTheme: MyThemeData.darkTheme,
       themeMode: provider.themeMode,
     );
+  }
+
+  void initSharedPreference() async {
+    final prefs = await SharedPreferences.getInstance();
+    // if(prefs.getString('language')=='ar'){
+    //   provider.changeLanguage('ar');
+    // }
+    // else{
+    //   provider.changeLanguage('en');
+    // }
+    String lang = prefs.getString('language') ?? 'en';
+    provider.changeLanguage('lang');
+    if (prefs.getString('Theme') == 'dark') {
+      provider.changeTheme(ThemeMode.dark);
+    } else {
+      provider.changeTheme(ThemeMode.light);
+    }
   }
 }

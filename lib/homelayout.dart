@@ -1,7 +1,7 @@
 import 'package:eslamy/provider/my_provider.dart';
 import 'package:eslamy/tabs/hadeth/hadeth.dart';
 import 'package:eslamy/tabs/quran/quran.dart';
-import 'package:eslamy/tabs/radio.dart';
+import 'package:eslamy/tabs/radio/radio.dart';
 import 'package:eslamy/tabs/sebha.dart';
 import 'package:eslamy/tabs/setting/settings.dart';
 import 'package:flutter/material.dart';
